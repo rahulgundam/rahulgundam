@@ -1,0 +1,20 @@
+name: AzureML Pipeline
+on:
+  push:
+    branches:
+      - main
+      - dev
+jobs:
+  Sample-Test-Workflow:
+    runs-on: ubuntu-latest
+    env:
+      env-name: QA
+    steps:
+    - name: Azure Login
+      uses: Azure/login@v1.4.6
+      with:
+        # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+        creds: # optional
+        
+    - name: Checkout
+      uses: actions/checkout@v2.6.0
